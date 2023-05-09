@@ -4,7 +4,6 @@ import com.haohao.dao.TeachInfoDao;
 import com.haohao.entity.TeachInfo;
 import com.haohao.utlis.SpringContextUtils;
 import org.springframework.orm.hibernate5.HibernateTemplate;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
