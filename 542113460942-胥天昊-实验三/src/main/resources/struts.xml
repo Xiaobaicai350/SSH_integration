@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<!--    package标签：该标签可以配置控制器的包结构,方便区分不同模块
+            name属性：是可以自定义的，但是必须保证唯一，跟编写的代码没有关系，只是用于区分package
+            extends属性，默认继承struts-default
+            namespace属性：命名空间，默认为/
+-->
+    <package name="haohao1" extends="struts-default" namespace="/">
+<!--    action标签：配置访问请求
+            name属性:配置访问路径，这个就是 比如说表单提交的那个action:xxx.action
+            class属性：访问该路径要执行的控制器
+-->
+<!--    result标签：根据action类返回的值配置应该返回的页面
+            name属性：根据action返回的比如说成功或者失败分别访问哪个页面
+-->
+        <action name="lookTeacher" class="com.haohao.action.LookTeacherAction">
+            <result name="success">/lookTeacher.jsp</result>
+        </action>
+        <action name="addTeacher" class="com.haohao.action.AddTeacherAction">
+            <result name="success" type="redirect">
+                <param name="location">/lookTeacher.action</param>
+            </result>
+        </action>
+        <action name="findTeacher" class="com.haohao.action.FindTeacherAction">
+            <result name="success">/updateTeacher.jsp</result>
+            <result name="error">/findTeacher.jsp</result>
+        </action>
+        <action name="updateTeacher" class="com.haohao.action.UpdateTeacherAction">
+            <result name="success" type="redirect">
+                <param name="location">/lookTeacher.action</param>
+            </result>
+        </action>
+        <action name="deleteTeacher" class="com.haohao.action.DeleteTeacherAction">
+            <result name="success" type="redirect">
+                <param name="location">/lookTeacher.action</param>
+            </result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<!--
+    class标签：配置该实体类关联的数据库表
+        name属性：该实体类的全路径
+        table属性：该实体类关联的数据库表名称
+-->
+    <class name="com.haohao.entity.TeachInfo" table="teachinfo">
+<!--    id标签：对应的是主键属性
+            name属性：实体类的属性名（区分大小写）
+            type属性：该属性的数据类型
+            column属性：对应数据库的列名（不区分下大小写）当属性名和列名一致的话，可省略不写
+-->
+        <id name="id" type="java.lang.Integer">
+<!--        配置主键生成策略
+            assigned:主键由程序本身提供
+-->
+            <generator class="increment"></generator>
+        </id>
+<!--    property标签：配置普通属性（非主键）
+            name属性：实体类的属性名（区分大小写）
+            type属性：该属性的数据类型
+            column属性：对应数据库的列名（不区分下大小写）当属性名和列名一致的话，可省略不写
+-->
+        <property name="name" type="java.lang.String"></property>
+        <property name="sex" type="java.lang.String"></property>
+        <property name="age" type="java.lang.Integer"></property>
+        <property name="department" type="java.lang.String"></property>
+    </class>
+</hibernate-mapping>
